@@ -182,7 +182,7 @@ export async function from (key: Uint8Array): Promise<WritableName> {
  * can be {@link resolve}d using the service.
  */
 export async function v0 (name: Name, value: string): Promise<Revision> {
-  return new Revision(name, value, 0n, defaultValidity())
+  return new Revision(name, value, BigInt(0), defaultValidity())
 }
 
 /**
@@ -192,7 +192,7 @@ export async function v0 (name: Name, value: string): Promise<Revision> {
  * This returns a new {@link Revision} and  does not alter the original `revision` argument.
  */
 export async function increment (revision: Revision, value: string): Promise<Revision> {
-  const seqno = revision.sequence + 1n
+  const seqno = revision.sequence + BigInt(1)
   return new Revision(revision.name, value, seqno, defaultValidity())
 }
 
